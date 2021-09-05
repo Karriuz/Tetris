@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  font-family: 'Russo One', sans-serif;
+}
+:root{
+  --backgroundColor: rgb(16, 1, 31);
+  --firstLayerColor: #20004A;
+  --secondLayerColor: #320955;
+  --thirdLayerColor: #480072;
+
+  --gameBoardWidh: 40vh;
+  --gameBoardHeight: 80vh;
+}
+html,
+body {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  z-index: -150;
+  background-color: var(--backgroundColor);
+  -webkit-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+}
+
+.background-stuff{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+}
+
+.background-container{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  bottom: 0;
+  z-index: -100;
+}
+
+svg{
+  position: relative;
+  bottom: 0;
+  z-index: 0;
+}
+
+#scoreboard-container{
+  position: absolute;
+  z-index: -50;
+  color: rgba(255, 255, 255, 0.568);
+  top: 2vh;
+  left: 2vh;
+  font-size: 2rem;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+}
+.game-container {
+  overflow: hidden;
+  border: 8px black solid;
+  border-radius: 8px;
+  height: var(--gameBoardHeight);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+#game-board {
+  display: grid;
+  height: var(--gameBoardHeight);
+  width: var(--gameBoardWidh);
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(21, 4vh);
+  background-size: contain;
+  transform: translate(0px, -4vh);
+  z-index: 100;
+}
+#game-board::before{
+  position: absolute;
+  transform: translate(0px, 4vh);
+  background: url(./imgs/game-background.png);
+  background-size: contain;
+  height: var(--gameBoardHeight);
+  width: var(--gameBoardWidh);
+  content: "";
+  z-index: -100;
+}
+
+#save-score-panel{
+  visibility: hidden;
+  position: absolute;
+  height: var(--gameBoardHeight);
+  width: var(--gameBoardWidh);
+  background-color: rgba(0, 0, 0, 0.815);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  text-align: center;
+  color: white;
+  z-index: 250;
+}
+
+#save-score-panel > button{
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white;
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+  width: 50%;
+  height: 5%
+}
+#save-score-panel > input{
+  text-align: center;
+  font-size: 1.2rem;
+  background-color: white;
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  margin-top: 20px;
+  width: 50%;
+  height: 5%
+}
+
+#menu{
+  position: absolute;
+  height: var(--gameBoardHeight);
+  width: var(--gameBoardWidh);
+  background-color: rgba(0, 0, 0, 0.699);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  color: white;
+  z-index: 200;
+}
+.menu-text{padding: 5vh;}
+#menu-play-button{
+    border: white solid 2vh;
+    font-size: 1.5rem;
+    width: 20vh;
+    height: 15vh;
+    color: white;
+}
+.side-panel {
+  color: white;
+  position: relative;
+  width: 20vh;
+  background-color: #832121;
+  border-left: black solid 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+  font-size: 3.2rem;
+}
+#score-info{
+  text-align: center;
+  width: 90%;
+  margin: 5%;
+}
+.next-piece-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  height: 20vh;
+  margin: 5%;
+}
+#mini-board{
+  height: 14vh;
+  width: 14vh;
+
+  background-color: black;
+  background-size: cover;
+}
+.level-info{
+  width: 90%;
+  margin: 5%;
+}
+.ui-buttons{
+  display: flex;
+  width: 90%;
+  margin: 5%;
+}
+button{
+  width: 45%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  height: 9vh;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  outline: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#pause-button{ background-image: url(./imgs/button-pause.png); }
+#focus-handler{ background-image: url(./imgs/button-sound.png); }
+
+.movement-info{
+  margin-bottom: 10px;
+  width: 90%;
+  height: 23%;
+  border: black solid 1px;
+  background-color: #3b3b3b;
+  border-radius: 10%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.movement-info > img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10%;
+}
+
+.first{ fill: var(--firstLayerColor); }
+.second{ fill: var(--secondLayerColor); }
+.third{ fill: var(--thirdLayerColor); }
+
+.delay{
+  -webkit-transition: fill 1000ms linear;
+  -ms-transition: fill 1000ms linear;
+  transition: fill 1000ms linear;
+}
+.blue{
+    --backgroundColor:#011a1e;
+    --firstLayerColor: #00444d;
+    --secondLayerColor: #0a525c;
+    --thirdLayerColor: #006370;
+}
+.red{
+  --backgroundColor: #1f0101;
+  --firstLayerColor: #4a0000;
+  --secondLayerColor: #550909;
+  --thirdLayerColor: #720000;
+}
+.purple{
+  --backgroundColor: rgb(16, 1, 31);
+  --firstLayerColor: #20004A;
+  --secondLayerColor: #320955;
+  --thirdLayerColor: #480072;
+}
+
+.iBrick { background-image: url(./imgs/game_element-lightBlue.png); }
+.oBrick { background-image: url(./imgs/game_element-yellow.png); }
+.tBrick{ background-image: url(./imgs/game_element-purple.png); }
+.jBrick{ background-image: url(./imgs/game_element-blue.png); }
+.lBrick{ background-image: url(./imgs/game_element-orange.png); }
+.sBrick{ background-image: url(./imgs/game_element-green.png); }
+.zBrick{ background-image: url(./imgs/game_element-red.png); }
+.brick{
+  background-size: cover;
+  z-index: 100;
+}
+
+@media all and (max-width: 1600px){
+    :root{
+      font-size: 12px;
+    }
+}
+@media all and (max-width: 1400px){
+  :root{
+    font-size: 8px;
+  }
+}
+@media all and (max-width: 600px){
+  :root{
+    font-size: 6px;
+    --gameBoardWidh: 200px;
+    --gameBoardHeight: 400px;
+  }
+  svg{
+    display: none;
+  }
+  #scoreboard-container{
+    display: none;
+  }
+  .side-panel{
+    width: 100px;
+  }
+  #game-board {
+    transform: translate(0px, -20px);
+    grid-template-rows: repeat(21, 20px);
+  }
+  #game-board::before{
+    transform: translate(0px, 20px);
+  }
+
+}
