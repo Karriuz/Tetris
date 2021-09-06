@@ -171,7 +171,7 @@ function saveScore() {
         name: document.getElementById('nickname-input').value,
         score: score
     }
-    fetch("http://localhost:3000/scores",
+    fetch("https://karrius-tetris-api.herokuapp.com/scores",
         {
             method: "POST",
             headers: {
@@ -185,7 +185,7 @@ function saveScore() {
 }
 
 function getScores() {
-    fetch("http://localhost:3000/scores",
+    fetch("https://karrius-tetris-api.herokuapp.com/scores",
         {
             method: "GET",
         })
