@@ -192,6 +192,7 @@ function saveScore() {
 
 
     if (treasure.length !== 13) {
+        console.log(treasure)
         for (var i = treasureMap.length - 1; i >= 0; i--) {
             treasure += treasureMap[i];
         }
