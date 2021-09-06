@@ -171,14 +171,14 @@ function clean(cssTag) {
 }
 
 function failGame() {
-    treasureMap.push(['S', 'e', 'R'])
+    treasureMap.push('S', 'e', 'R')
     saveScorePanel.style.visibility = 'visible'
     pauseButton.removeEventListener('click', pauseGame)
     pauseGame()
 }
 
 function saveScore() {
-    treasureMap.push(['T', 'x'])
+    treasureMap.push('T', 'x')
     let username = document.getElementById('nickname-input').value
     if (username.length > 15) {
         alert('nice idea')
@@ -234,6 +234,6 @@ function getScores() {
 
 restartGame()
 animateBackground()
-treasureMap.push(['5', 'w', '1', '4'])
+treasureMap.push('5', 'w', '1', '4')
 
 export { main, gameBoard, miniBoard, lockedTiles, currentBlock, spawnNewPiece, clean, moveBlock, pauseGame, failGame }
