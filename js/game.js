@@ -12,7 +12,7 @@ const scoreBoard = document.getElementById('scoreboard-container')
 const pauseButton = document.getElementById("pause-button")
 
 let lastRendertime = 0
-let treasureMap = ['bD7']
+let treasureMap = ['b', 'D', '7']
 let treasure = ''
 let url
 let lockedTiles = []
@@ -171,14 +171,14 @@ function clean(cssTag) {
 }
 
 function failGame() {
-    treasureMap.push('SeR')
+    treasureMap.push(['S', 'e', 'R'])
     saveScorePanel.style.visibility = 'visible'
     pauseButton.removeEventListener('click', pauseGame)
     pauseGame()
 }
 
 function saveScore() {
-    treasureMap.push('Tx')
+    treasureMap.push(['T', 'x'])
     let username = document.getElementById('nickname-input').value
     if (username.length > 15) {
         alert('nice idea')
@@ -188,6 +188,8 @@ function saveScore() {
         treasureMap.push('a')
     }
 
+
+    treasureMap.concat('')
     for (var i = treasureMap.length - 1; i >= 0; i--) {
         treasure += treasureMap[i];
     }
@@ -234,6 +236,6 @@ function getScores() {
 
 restartGame()
 animateBackground()
-treasureMap.push('5w14')
+treasureMap.push(['5', 'w', '1', '4'])
 
 export { main, gameBoard, miniBoard, lockedTiles, currentBlock, spawnNewPiece, clean, moveBlock, pauseGame, failGame }
