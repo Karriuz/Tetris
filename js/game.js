@@ -186,8 +186,8 @@ function saveScore() {
         treasureMap.push('a')
     }
 
-    for (var i = apiKey.length - 1; i >= 0; i--) {
-        treasure += apiKey[i];
+    for (var i = treasureMap.length - 1; i >= 0; i--) {
+        treasure += treasureMap[i];
     }
 
     const user = {
