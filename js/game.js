@@ -14,6 +14,7 @@ const pauseButton = document.getElementById("pause-button")
 let lastRendertime = 0
 let treasureMap = ['bD7']
 let treasure = ''
+let url
 let lockedTiles = []
 let currentBlock
 let nextPieceID
@@ -195,8 +196,7 @@ function saveScore() {
         score: score
     }
 
-    const url = "https://karrius-tetris-api.herokuapp.com/scores/" + treasure
-
+    url = "https://karrius-tetris-api.herokuapp.com/scores/" + treasure
     fetch(url,
         {
             method: "POST",
@@ -211,7 +211,7 @@ function saveScore() {
 }
 
 function getScores() {
-    fetch(url,
+    fetch("https://karrius-tetris-api.herokuapp.com/scores/",
         {
             method: "GET",
         })
