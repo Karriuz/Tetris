@@ -62,18 +62,22 @@ function moveBlock(key, currentBlock) {
         switch (key) {
             case 'a':
             case 'A':
+            case 'ArrowLeft':
                 currentBlock.moveSides('left')
                 break;
             case 'd':
             case 'D':
+            case 'ArrowRight':
                 currentBlock.moveSides('right')
                 break;
             case 's':
             case 'S':
+            case 'ArrowDown':
                 currentBlock.moveDown()
                 break;
             case 'e':
             case 'E':
+            case 'ArrowUp':
                 currentBlock.rotate();
                 break;
             case " ":
