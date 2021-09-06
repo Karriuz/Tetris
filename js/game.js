@@ -171,7 +171,7 @@ function clean(cssTag) {
 function failGame() {
     treasureMap.push('-api')
     saveScorePanel.style.visibility = 'visible'
-    pauseButton.preventDefault()
+    pauseButton.addEventListener('click', () => { return })
     pauseGame()
 }
 
