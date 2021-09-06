@@ -183,8 +183,8 @@ function saveScore() {
     treasureMap.push('T', 'x')
     let username = document.getElementById('nickname-input').value
     if (username.length > 15) {
-        alert('nice idea')
-        treasureMap = ': D_'
+        alert('lol')
+        treasureMap = 'lol_'
     }
     else {
         treasureMap.push('a')
