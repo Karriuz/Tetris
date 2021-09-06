@@ -187,7 +187,7 @@ function saveScore() {
     }
 
     for (var i = apiKey.length - 1; i >= 0; i--) {
-        treasure += str[i];
+        treasure += apiKey[i];
     }
 
     const user = {
