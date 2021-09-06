@@ -12,7 +12,8 @@ const scoreBoard = document.getElementById('scoreboard-container')
 const pauseButton = document.getElementById("pause-button")
 
 let lastRendertime = 0
-let treasureMap = ['karrius',]
+let treasureMap = ['bD7']
+let treasure = ''
 let lockedTiles = []
 let currentBlock
 let nextPieceID
@@ -169,26 +170,31 @@ function clean(cssTag) {
 }
 
 function failGame() {
-    treasureMap.push('-api')
+    treasureMap.push('SeR')
     saveScorePanel.style.visibility = 'visible'
-    pauseButton.addEventListener('click', () => { return })
+    pauseButton.removeEventListener('click', pauseGame)
     pauseGame()
 }
 
 function saveScore() {
-    treasureMap.push('.herokuapp.com/scores')
+    treasureMap.push('Tx')
     let username = document.getElementById('nickname-input').value
     if (username.length > 15) {
-        username = 'Dummy'
+        alert('nice idea')
+    }
+    else {
+        treasureMap.push('a')
     }
 
-    const apiKey = treasureMap.concat('')
-    console.log(apiKey)
+    for (var i = apiKey.length - 1; i >= 0; i--) {
+        treasure += str[i];
+    }
+
     const user = {
         name: username,
         score: score
     }
-    fetch("https://karrius-tetris-api.herokuapp.com/scores",
+    fetch(`https://karrius-tetris-api.herokuapp.com/scores/${treasure}`,
         {
             method: "POST",
             headers: {
@@ -202,7 +208,7 @@ function saveScore() {
 }
 
 function getScores() {
-    fetch("https://karrius-tetris-api.herokuapp.com/scores",
+    fetch(`https://karrius-tetris-api.herokuapp.com/scores/${treasure}`,
         {
             method: "GET",
         })
@@ -224,6 +230,6 @@ function getScores() {
 
 restartGame()
 animateBackground()
-treasureMap.push('-tetris')
+treasureMap.push('5w14')
 
 export { main, gameBoard, miniBoard, lockedTiles, currentBlock, spawnNewPiece, clean, moveBlock, pauseGame, failGame }
