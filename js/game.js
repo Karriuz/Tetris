@@ -119,10 +119,12 @@ function pauseGame() {
         menu.style.visibility = 'hidden'
         window.requestAnimationFrame(main);
         paused = false
+        pauseButton.style.backgroundImage = 'url(./imgs/button-pause-2.png)'
     }
     else {
         menu.style.visibility = 'visible'
         paused = true
+        pauseButton.style.backgroundImage = 'url(./imgs/button-pause.png)'
     }
     document.getElementById('focus-handler').focus()
 }

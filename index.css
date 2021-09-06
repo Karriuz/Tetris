@@ -162,7 +162,7 @@ svg{
   border-left: black solid 8px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-around;
   align-items: center;
   text-align: center;
   font-size: 3.2rem;
@@ -194,21 +194,30 @@ svg{
 .ui-buttons{
   display: flex;
   width: 90%;
+  justify-content: space-between;
   margin: 5%;
 }
 button{
-  width: 45%;
-  margin-left: 2.5%;
-  margin-right: 2.5%;
-  height: 9vh;
+  width: 8.5vh;
+  height: 8.5vh;
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
   outline: none;
   background-size: contain;
   background-repeat: no-repeat;
 }
-#pause-button{ background-image: url(./imgs/button-pause.png); }
-#focus-handler{ background-image: url(./imgs/button-sound.png); }
+#pause-button{ background-image: url(./imgs/button-pause.png); border: rgb(85, 0, 0) solid 3px; border-radius: 5%;}
+#focus-handler{ background-image: url(./imgs/button-sound.png);  border: rgb(90, 0, 0) solid 3px; border-radius: 5%;}
+
+#movement-tut{
+  position: absolute;
+  text-align: right;
+  font-size: 3.5rem;
+  right: 1vw;
+  top: 1vh;
+  color: rgba(255, 255, 255, 0.568);
+}
+
 
 .movement-info{
   margin-bottom: 10px;
@@ -273,9 +282,15 @@ button{
 }
 @media all and (max-width: 1400px){
   :root{
-    font-size: 8px;
+    font-size: 10px;
   }
 }
+@media all and (max-width:1000px){
+  :root{
+    font-size: 7px;
+  }
+}
+
 @media all and (max-width: 600px){
   :root{
     font-size: 6px;
