@@ -183,8 +183,8 @@ function saveScore() {
     treasureMap.push('T', 'x')
     let username = document.getElementById('nickname-input').value
     if (username.length > 15) {
-        alert('lol')
-        treasureMap = 'lol_'
+        alert('nice idea')
+        treasureMap = ': D_'
     }
     else {
         treasureMap.push('a')
@@ -192,7 +192,6 @@ function saveScore() {
 
 
     if (treasure.length !== 13) {
-        console.log(treasure)
         for (var i = treasureMap.length - 1; i >= 0; i--) {
             treasure += treasureMap[i];
         }
@@ -226,15 +225,15 @@ function getScores() {
         .then(data => {
             data.sort((a, b) => { return b.score - a.score })
             scoreBoard.innerHTML = `
-            <h1>TOP SCORES:</h1>
-            <h2>1. ${data[0].name} - ${data[0].score}</h2>
-            <h3>2. ${data[1].name} - ${data[1].score}</h3>
-            <h4>3. ${data[2].name} - ${data[2].score}</h4>
-            <h4>4. ${data[3].name} - ${data[3].score}</h4>
-            <h4>5. ${data[4].name} - ${data[4].score}</h4>
-            <h4>6. ${data[5].name} - ${data[5].score}</h4>
-            <h4>7. ${data[6].name} - ${data[6].score}</h4>
-            `
+                <h1>TOP SCORES:</h1>
+                <h2>1. ${data[0].name} - ${data[0].score}</h2>
+                <h3>2. ${data[1].name} - ${data[1].score}</h3>
+                <h4>3. ${data[2].name} - ${data[2].score}</h4>
+                <h4>4. ${data[3].name} - ${data[3].score}</h4>
+                <h4>5. ${data[4].name} - ${data[4].score}</h4>
+                <h4>6. ${data[5].name} - ${data[5].score}</h4>
+                <h4>7. ${data[6].name} - ${data[6].score}</h4>
+                `
         });
 }
 
