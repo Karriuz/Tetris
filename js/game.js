@@ -9,8 +9,10 @@ const menu = document.getElementById('menu')
 const miniBoard = document.getElementById('mini-board')
 const saveScorePanel = document.getElementById('save-score-panel')
 const scoreBoard = document.getElementById('scoreboard-container')
+const pauseButton = document.getElementById("pause-button")
 
 let lastRendertime = 0
+let treasureMap = ['karrius',]
 let lockedTiles = []
 let currentBlock
 let nextPieceID
@@ -18,7 +20,7 @@ let paused = true
 
 document.getElementById('cancel-button').addEventListener('click', restartGame)
 document.getElementById('send-score-button').addEventListener('click', saveScore)
-document.getElementById("pause-button").addEventListener("click", pauseGame)
+pauseButton.addEventListener("click", pauseGame)
 document.getElementById('menu-play-button').addEventListener("click", pauseGame)
 window.addEventListener('keydown', (e) => {
     moveBlock(e.key, currentBlock)
@@ -105,6 +107,7 @@ function restartGame() {
     scoreIncrease(0)
     saveScorePanel.style.visibility = 'hidden'
     gameBoard.innerHTML = ''
+    pauseButton.addEventListener('click', pauseGame)
     spawnNewPiece()
     pauseGame()
 }
@@ -166,13 +169,23 @@ function clean(cssTag) {
 }
 
 function failGame() {
+    treasureMap.push('-api')
     saveScorePanel.style.visibility = 'visible'
+    pauseButton.preventDefault()
     pauseGame()
 }
 
 function saveScore() {
+    treasureMap.push('.herokuapp.com/scores')
+    let username = document.getElementById('nickname-input').value
+    if (username.length > 15) {
+        username = 'Dummy'
+    }
+
+    const apiKey = treasureMap.concat('')
+    console.log(apiKey)
     const user = {
-        name: document.getElementById('nickname-input').value,
+        name: username,
         score: score
     }
     fetch("https://karrius-tetris-api.herokuapp.com/scores",
@@ -211,5 +224,6 @@ function getScores() {
 
 restartGame()
 animateBackground()
+treasureMap.push('-tetris')
 
 export { main, gameBoard, miniBoard, lockedTiles, currentBlock, spawnNewPiece, clean, moveBlock, pauseGame, failGame }
