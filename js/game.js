@@ -194,7 +194,10 @@ function saveScore() {
         name: username,
         score: score
     }
-    fetch(`https://karrius-tetris-api.herokuapp.com/scores/${treasure}`,
+
+    const url = "https://karrius-tetris-api.herokuapp.com/scores/" + treasure
+
+    fetch(url,
         {
             method: "POST",
             headers: {
@@ -208,7 +211,7 @@ function saveScore() {
 }
 
 function getScores() {
-    fetch(`https://karrius-tetris-api.herokuapp.com/scores/${treasure}`,
+    fetch(url,
         {
             method: "GET",
         })
