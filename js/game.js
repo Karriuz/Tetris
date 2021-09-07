@@ -12,9 +12,6 @@ const scoreBoard = document.getElementById('scoreboard-container')
 const pauseButton = document.getElementById("pause-button")
 
 let lastRendertime = 0
-let treasureMap = ['b', 'D', '7']
-let treasure = ''
-let url
 let lockedTiles = []
 let currentBlock
 let nextPieceID
@@ -173,37 +170,22 @@ function clean(cssTag) {
 }
 
 function failGame() {
-    treasureMap.push('S', 'e', 'R')
     saveScorePanel.style.visibility = 'visible'
     pauseButton.removeEventListener('click', pauseGame)
     pauseGame()
 }
 
 function saveScore() {
-    treasureMap.push('T', 'x')
     let username = document.getElementById('nickname-input').value
     if (username.length > 15) {
         alert('nice idea')
-        treasureMap = ': D_'
+        url = 'verySmartAndy'
     }
-    else {
-        treasureMap.push('a')
-    }
-
-
-    if (treasure.length !== 13) {
-        for (var i = treasureMap.length - 1; i >= 0; i--) {
-            treasure += treasureMap[i];
-        }
-    }
-
     const user = {
         name: username,
         score: score
     }
-
-    url = "https://karrius-tetris-api.herokuapp.com/scores/" + treasure
-    fetch(url,
+    fetch("https://karrius-tetris-api.herokuapp.com/scores/",
         {
             method: "POST",
             headers: {
@@ -217,6 +199,7 @@ function saveScore() {
 }
 
 function getScores() {
+
     fetch("https://karrius-tetris-api.herokuapp.com/scores/",
         {
             method: "GET",
@@ -239,6 +222,5 @@ function getScores() {
 
 restartGame()
 animateBackground()
-treasureMap.push('5', 'w', '1', '4')
 
 export { main, gameBoard, miniBoard, lockedTiles, currentBlock, spawnNewPiece, clean, moveBlock, pauseGame, failGame }
