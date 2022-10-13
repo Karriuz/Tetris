@@ -1,1 +1,1 @@
-Playable at: https://tetris-karrius.netlify.app
+Playable at: https://mjezewski-tetris.netlify.app
